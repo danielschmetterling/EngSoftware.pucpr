@@ -2,12 +2,12 @@ public class Circulo extends Forma{
     private double raio;
     double pi = Math.PI;
 
-    public Circulo(){
+    public Circulo(double raio){
         this.raio = raio;
     }
 
     @Override
     public double calcularArea() {
-        return raio * pi;
+        return (raio * raio) * pi;
     }
 }
