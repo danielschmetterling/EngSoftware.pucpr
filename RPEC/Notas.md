@@ -1,0 +1,1 @@
+A matéria de Resolução de Problemas Estruturados em Computação do segundo semestre de 2026.
