@@ -49,14 +49,48 @@ public class Data{
     }
 
     public void imprimir(){
-        formato = formato.replace("aaaa", String.format("%04d", ano));
-        formato = formato.replace("aa", String.format("%02d", ano % 100));
+        counterD = 0;
+        counterM = 0;
+        counterA = 0;
+        stringD = "%0xd";
+        stringM = "%0xd";
+        stringA = "%0xd";
+
+        for (int = 0; i < formato.length(); i++){
+            char letra = formato.charAt(i);
+            if (letra == "d"){
+                counterD += 1;
+            }
+            if (letra == "m"){
+                counterM += 1;
+            }
+            if (letra == "a"){
+                counterA += 1;
+            }
+        }
+        char[] charsA = new char[counterA];
+        java.util.Arrays.fill(charsA, 'a');
+        String resultadoA = new String(charsA);
+        char[] charsM = new char[counterM];
+        java.util.Arrays.fill(charsM, 'm');
+        String resultadoM = new String(charsM);
+        char[] charsD = new char[counterD];
+        java.util.Arrays.fill(charsD, 'd');
+        String resultadoD = new String(charsD);
         
-        formato = formato.replace("mm", String.format("%02d", mes));
-        formato = formato.replace("m", String.valueOf(mes));
+        String stringD = stringD.replace("x", counterD);
+        String stringM = stringM.replace("x", counterM);
+        String stringA = stringA.replace("x", counterA);
+
+        if (countera != 4){
+            formato = formato.replace(resultadoA, String.format(stringA, ano % 100));
+        } else {
+            formato = formato.replace(resultadoA, String.format(stringA, ano));
+        }
         
-        formato = formato.replace("dd", String.format("%02d", dia));
-        formato = formato.replace("d", String.valueOf(dia));
+        formato = formato.replace(resultadoM, String.format(stringM, mes));
+    
+        formato = formato.replace(resultadoD, String.format(stringD, dia));
         
         System.out.println(formato);
 
