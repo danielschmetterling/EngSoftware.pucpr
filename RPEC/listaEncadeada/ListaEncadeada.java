@@ -37,10 +37,27 @@ public class ListaEncadeada {
             // Caso contrário, percorre a lista até o final
             No atual = inicio;
             while (atual.proximo != null) {
-                JOptionPane.showMessageDialog(null, atual);
-                atual = atual.proximo; // Avança para o próximo nó
+                 atual = atual.proximo; // Avança para o próximo nó
             }
             atual.proximo = novoNo; // Insere o novo nó no final da lista
+        }
+    }
+
+    public void removeElemento(int elemento){
+        if (inicio == null){
+            return;
+        }
+        if (inicio == elemento){
+            inicio = inico.proximo;
+            return;
+        }
+        No atual = inicio;
+        while (atual.proximo != null){
+            if (atual.proximo.dado = elemento){
+                atual.proximo = atual.proximo.proximo;
+                return;
+            }
+            atual = atual.proximo;
         }
     }
 
