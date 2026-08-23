@@ -47,7 +47,7 @@ public class ListaEncadeada {
         if (inicio == null){
             return;
         }
-        if (inicio == elemento){
+        if (inicio.dado == elemento){
             inicio = inico.proximo;
             return;
         }
