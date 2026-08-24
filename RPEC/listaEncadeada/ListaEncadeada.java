@@ -53,7 +53,7 @@ public class ListaEncadeada {
         }
         No atual = inicio;
         while (atual.proximo != null){
-            if (atual.proximo.dado = elemento){
+            if (atual.proximo.dado == elemento){
                 atual.proximo = atual.proximo.proximo;
                 return;
             }
