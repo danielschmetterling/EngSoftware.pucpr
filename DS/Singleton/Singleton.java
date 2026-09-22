@@ -12,8 +12,8 @@ public class Singleton {
         if (instancia == null){
             instancia = new Singleton();
         }
+        return instancia;
     }
-    return instancia;
 
     public void buscarVoos(String origem, String destino){
         System.out.println("Buscando voos de " + origem + " para " + destino + " usando a chave: " + this.chaveGds);
