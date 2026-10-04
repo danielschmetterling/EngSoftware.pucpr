@@ -15,32 +15,48 @@ public class ArvoreBinaria {
         }
     }
 
-    public void inserir(int valor) {
-        No novo = new No(valor);
+    // public void inserir(int valor) {
+    //     No novo = new No(valor);
 
-        if (raiz == null) {
-            raiz = new No(valor);
-            return;
+    //     if (raiz == null) {
+    //         raiz = new No(valor);
+    //         return;
+    //     }
+
+    //     No atual = raiz;
+
+    //     while (true) {
+    //         if (valor < atual.valor) {
+    //             if (atual.esquerda == null) {
+    //                 atual.esquerda = novo;
+    //                 return;
+    //             }
+    //             atual = atual.esquerda;
+    //         }
+    //         if (valor >= atual.valor) {
+    //             if (atual.direita == null) {
+    //                 atual.direita = novo;
+    //                 return;
+    //             }
+    //             atual = atual.direita;
+    //         }
+    //     }
+    // }
+
+    public void inserir(int valor){
+        raiz = inserir(raiz,valor);
+    }
+
+    public No inserir(No atual, int valor){
+        if (atual == null){
+            return new No(valor);
         }
-
-        No atual = raiz;
-
-        while (true) {
-            if (valor < atual.valor) {
-                if (atual.esquerda == null) {
-                    atual.esquerda = novo;
-                    return;
-                }
-                atual = atual.esquerda;
-            }
-            if (valor >= atual.valor) {
-                if (atual.direita == null) {
-                    atual.direita = novo;
-                    return;
-                }
-                atual = atual.direita;
-            }
+        if (valor < atual.valor){
+            atual.esquerda = inserir(atual.esquerda, valor);
+        } else {
+            atual.direita = inserir(atual.direita, valor);
         }
+        return balancear(atual);
     }
 
     public void preOrdem(No atual) {
@@ -131,4 +147,75 @@ public class ArvoreBinaria {
             pai.direita = filho;
         }
     } // Que horror
+
+    public int altura(No no){
+        if (no == null){
+            return -1;
+        }
+
+        int esquerda = altura(no.esquerda);
+        int direita = altura(no.direita);
+        if (esquerda > direita){
+            return 1 + esquerda;
+        }
+        return 1 + direita;
+    }
+
+    public No rotacaoDireita(No raiz){ // Quando Balanceamento da raiz é +2+;
+        No novaRaiz = raiz.esquerda;
+        raiz.esquerda = novaRaiz.direita;
+        novaRaiz.direita = raiz;
+        return novaRaiz;
+    }
+
+    public No rotacaoEsquerda(No raiz){ // Quando Balanceamento da raiz é -2+;
+        No novaRaiz = raiz.direita;
+        raiz.direita = novaRaiz.esquerda;
+        novaRaiz.esquerda = raiz;
+        return novaRaiz;
+    }
+
+    public No rotacaoDuplaDireita(No raiz){
+        raiz.esquerda = rotacaoEsquerda(raiz.esquerda);
+        return rotacaoDireita(raiz);
+    }
+
+    public No rotacaoDuplaEsquerda(No raiz){
+        raiz.direita = rotacaoDireita(raiz.direita);
+        return rotacaoEsquerda(raiz);
+    }
+
+    public int fatorBalanceamento(No no){
+        if (no == null){
+            return 0;
+        }
+
+        int esquerda = altura(no.esquerda);
+        int direita = altura(no.direita);
+        return esquerda - direita;
+    }
+
+    public No balancear(No no){
+        if (fatorBalanceamento(no) > 1){
+            if (fatorBalanceamento(no.esquerda) == -1){
+                return rotacaoDuplaDireita(no);
+            }
+            return rotacaoDireita(no);
+        }
+        if (fatorBalanceamento(no) < -1){
+            if (fatorBalanceamento(no.direita) == +1){
+                return rotacaoDuplaEsquerda(no);
+            }
+            return rotacaoEsquerda(no);
+        }
+        return no;
+    }
+    public static void main(String args[]){
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        arvore.inserir(10);
+        arvore.inserir(20);
+        arvore.inserir(30);
+
+
+    }
 }
