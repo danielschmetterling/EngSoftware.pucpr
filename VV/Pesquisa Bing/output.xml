@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.15.0 on win32)" generated="2026-10-14T12:09:20.539804" rpa="false" schemaversion="5">
+<suite id="s1" name="Busca Testes" source="C:\GitHub\EngSoftware.pucpr\VV\Pesquisa Bing\busca_testes.robot">
+<test id="s1-t1" name="CT1 - Realizar busca no Bing" line="8">
+<kw name="Abrir o navegador" owner="busca_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:20.802970" level="INFO">Opening browser 'Firefox' to base url 'https://www.bing.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-14T12:09:20.802710" elapsed="7.012529"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-14T12:09:27.815909" elapsed="0.495796"/>
+</kw>
+<status status="PASS" start="2026-10-14T12:09:20.801916" elapsed="7.510302"/>
+</kw>
+<kw name="Acessar a pagina home no site" owner="busca_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:28.315502" level="INFO">Opening url 'https://www.bing.com/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-14T12:09:28.314962" elapsed="0.400194"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CAMPO_BUSCA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-14T12:09:28.715566" elapsed="0.159026"/>
+</kw>
+<status status="PASS" start="2026-10-14T12:09:28.313722" elapsed="0.561259"/>
+</kw>
+<kw name="Realizar pesquisa no site" owner="busca_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:28.877787" level="INFO">Typing text 'Abacaxi' into text field 'name:q'.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-14T12:09:28.876938" elapsed="0.126642"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:29.005686" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2026-10-14T12:09:29.411699" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-10-14T12:09:29.411854" level="INFO">Releasing special key RETURN.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-10-14T12:09:29.004332" elapsed="0.508019"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${RESULTADO_SELECTOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-14T12:09:29.512975" elapsed="0.772610"/>
+</kw>
+<status status="PASS" start="2026-10-14T12:09:28.875953" elapsed="1.409835"/>
+</kw>
+<kw name="Verificar resultado da busca" owner="busca_resources">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:30.753178" level="INFO">Current page contains text 'Abacaxi'.</msg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-10-14T12:09:30.287351" elapsed="0.466022"/>
+</kw>
+<status status="PASS" start="2026-10-14T12:09:30.286754" elapsed="0.466799"/>
+</kw>
+<kw name="Fechar o navegador" owner="busca_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-14T12:09:31.625757" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-14T12:09:30.755534" elapsed="0.870453"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-14T12:09:31.626323" elapsed="4.364884"/>
+</kw>
+<status status="PASS" start="2026-10-14T12:09:30.754922" elapsed="5.236513"/>
+</kw>
+<doc>Esse teste realiza uma busca no site Bing.com</doc>
+<tag>busca_bing</tag>
+<status status="PASS" start="2026-10-14T12:09:20.800807" elapsed="15.191341"/>
+</test>
+<status status="PASS" start="2026-10-14T12:09:20.541108" elapsed="15.453191"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">busca_bing</stat>
+</tag>
+<suite>
+<stat name="Busca Testes" id="s1" pass="1" fail="0" skip="0">Busca Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
