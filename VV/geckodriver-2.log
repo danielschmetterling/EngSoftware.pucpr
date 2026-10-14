@@ -1,0 +1,11 @@
+1791986816366	geckodriver	INFO	Listening on 127.0.0.1:55166
+1791986819437	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "55167" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Niel\\AppData\\Local\\Temp\\rust_mozprofileToLcQU"
+Dynamically enable window occlusion 0
+1791986819974	Marionette	INFO	Marionette enabled
+1791986820148	Marionette	INFO	Listening on port 55220
+WebDriver BiDi listening on ws://127.0.0.1:55167
+Read port: 55220
+1791986820471	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE
+1791986823504	Marionette	INFO	Stopped listening on port 55220
+Exiting due to channel error.
