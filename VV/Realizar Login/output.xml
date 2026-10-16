@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.15.0 on win32)" generated="2026-10-16T08:32:13.483251" rpa="false" schemaversion="5">
+<suite id="s1" name="Login Testes" source="C:\GitHub\EngSoftware.pucpr\VV\Realizar Login\login_testes.robot">
+<test id="s1-t1" name="CT1 - Realizar login como usuário ativo" line="9">
+<kw name="Abrir o navegador" owner="login_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:13.758686" level="INFO">Opening browser 'Firefox' to base url 'http://165.227.93.41/lojinha-web/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T08:32:13.758447" elapsed="7.898279"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T08:32:21.657446" elapsed="0.363567"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:13.757721" elapsed="8.263753"/>
+</kw>
+<kw name="Inserir login" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:22.025433" level="INFO">Typing text 'rafael' into text field 'usuario'.</msg>
+<arg>${LOGIN}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:22.023312" elapsed="0.216879"/>
+</kw>
+<arg>rafael</arg>
+<status status="PASS" start="2026-10-16T08:32:22.022124" elapsed="0.218431"/>
+</kw>
+<kw name="Inserir senha" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:22.242811" level="INFO">Typing text '123456' into text field 'senha'.</msg>
+<arg>${SENHA}</arg>
+<arg>${senha_inserida}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:22.242076" elapsed="0.091569"/>
+</kw>
+<arg>123456</arg>
+<status status="PASS" start="2026-10-16T08:32:22.241050" elapsed="0.092905"/>
+</kw>
+<kw name="Acionar o botão entrar" owner="login_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:22.335626" level="INFO">Clicking element 'entrar'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:22.335063" elapsed="0.370119"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:22.334365" elapsed="0.371310"/>
+</kw>
+<kw name="Fechar o navegador" owner="login_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:22.745899" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T08:32:22.708334" elapsed="0.037830"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T08:32:22.746540" elapsed="2.890800"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:22.706750" elapsed="2.930938"/>
+</kw>
+<doc>Realizar login na lojinha</doc>
+<tag>login</tag>
+<status status="PASS" start="2026-10-16T08:32:13.757038" elapsed="11.880777"/>
+</test>
+<test id="s1-t2" name="CT2 - Realizar login como usuário inativo" line="16">
+<kw name="Abrir o navegador" owner="login_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:25.641299" level="INFO">Opening browser 'Firefox' to base url 'http://165.227.93.41/lojinha-web/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T08:32:25.640852" elapsed="7.213752"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T08:32:32.855349" elapsed="0.356898"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:25.639770" elapsed="7.572851"/>
+</kw>
+<kw name="Inserir login" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:33.215625" level="INFO">Typing text 'paulo' into text field 'usuario'.</msg>
+<arg>${LOGIN}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:33.214639" elapsed="0.083417"/>
+</kw>
+<arg>paulo</arg>
+<status status="PASS" start="2026-10-16T08:32:33.213451" elapsed="0.084839"/>
+</kw>
+<kw name="Inserir senha" owner="login_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:33.299579" level="INFO">Typing text '111111' into text field 'senha'.</msg>
+<arg>${SENHA}</arg>
+<arg>${senha_inserida}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:33.299140" elapsed="0.038481"/>
+</kw>
+<arg>111111</arg>
+<status status="PASS" start="2026-10-16T08:32:33.298608" elapsed="0.039204"/>
+</kw>
+<kw name="Acionar o botão entrar" owner="login_resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:33.339206" level="INFO">Clicking element 'entrar'.</msg>
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:32:33.338758" elapsed="0.302461"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:33.338110" elapsed="0.303926"/>
+</kw>
+<kw name="Fechar o navegador" owner="login_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:32:33.683346" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T08:32:33.644694" elapsed="0.038901"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T08:32:33.683956" elapsed="2.953822"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:32:33.643227" elapsed="2.994794"/>
+</kw>
+<doc>Realizar login na lojinha como usuário inativo</doc>
+<tag>login</tag>
+<status status="PASS" start="2026-10-16T08:32:25.638604" elapsed="10.999519"/>
+</test>
+<status status="PASS" start="2026-10-16T08:32:13.485178" elapsed="23.153878"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">login</stat>
+</tag>
+<suite>
+<stat name="Login Testes" id="s1" pass="2" fail="0" skip="0">Login Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

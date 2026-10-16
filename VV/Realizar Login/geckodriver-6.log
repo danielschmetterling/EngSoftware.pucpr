@@ -1,0 +1,16 @@
+1792150334110	geckodriver	INFO	Listening on 127.0.0.1:61532
+1792150337205	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "61533" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Niel\\AppData\\Local\\Temp\\rust_mozprofileXKsWsI"
+Dynamically enable window occlusion 0
+1792150337614	Marionette	INFO	Marionette enabled
+1792150337727	Marionette	INFO	Listening on port 61540
+WebDriver BiDi listening on ws://127.0.0.1:61533
+Read port: 61540
+1792150337897	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.error: "Experiment private-window-visual-refresh-design-change-only has unknown featureId: feltPrivacy"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://165.227.93.41."
+1792150342750	Marionette	INFO	Stopped listening on port 61540
+Dynamically enable window occlusion 1
