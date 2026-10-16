@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.0 on win32)" generated="2026-10-16T18:55:03.337640" rpa="false" schemaversion="5">
+<suite id="s1" name="Condicao Testes" source="C:\Home\GitHub\EngSoftware.pucpr\VV\Condição\condicao_testes.robot">
+<test id="s1-t1" name="CT1 - Classificar usuário ativo" line="7">
+<kw name="Abrir o navegador" owner="condicao_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.906505" elapsed="0.000176"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.906962" elapsed="0.000137"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.905570" elapsed="0.001660"/>
+</kw>
+<kw name="Realizar login" owner="condicao_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${LOGIN}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.907913" elapsed="0.000081"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${SENHA}</arg>
+<arg>${senhatexto}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.908135" elapsed="0.000069"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.908341" elapsed="0.000084"/>
+</kw>
+<arg>rafael</arg>
+<arg>123456</arg>
+<status status="PASS" start="2026-10-16T18:55:03.907589" elapsed="0.000898"/>
+</kw>
+<kw name="Classificar resultado do login" owner="condicao_resources">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Bem-vindo</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.909803" elapsed="0.000097"/>
+</kw>
+<var>${login_confirmado}</var>
+<arg>Page Should Contain</arg>
+<arg>Bem-vindo</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-16T18:55:03.909172" elapsed="0.000790"/>
+</kw>
+<if>
+<branch type="IF" condition="${login_confirmado}">
+<kw name="Log" owner="BuiltIn">
+<arg>Login realizado para o usuário ${usuario}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.910311" elapsed="0.000252"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.910102" elapsed="0.000517"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>Login não confirmado para o usuário ${usuario}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.910830" elapsed="0.000166"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.910684" elapsed="0.000371"/>
+</branch>
+<status status="PASS" start="2026-10-16T18:55:03.910065" elapsed="0.001044"/>
+</if>
+<arg>rafael</arg>
+<status status="PASS" start="2026-10-16T18:55:03.908756" elapsed="0.002395"/>
+</kw>
+<kw name="Fechar o navegador" owner="condicao_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.911615" elapsed="0.000044"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.911737" elapsed="0.000035"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.911373" elapsed="0.000437"/>
+</kw>
+<doc>Demonstra uma condição IF/ELSE após o login.</doc>
+<tag>if_else</tag>
+<status status="PASS" start="2026-10-16T18:55:03.904712" elapsed="0.007141"/>
+</test>
+<test id="s1-t2" name="CT2 - Classificar usuário inativo" line="13">
+<kw name="Abrir o navegador" owner="condicao_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.912809" elapsed="0.000085"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.913003" elapsed="0.000073"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.912511" elapsed="0.000629"/>
+</kw>
+<kw name="Realizar login" owner="condicao_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${LOGIN}</arg>
+<arg>${usuario}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.913506" elapsed="0.000068"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${SENHA}</arg>
+<arg>${senhatexto}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.913703" elapsed="0.000060"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${BOTAO_ENTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.913916" elapsed="0.000073"/>
+</kw>
+<arg>paulo</arg>
+<arg>111111</arg>
+<status status="PASS" start="2026-10-16T18:55:03.913279" elapsed="0.000777"/>
+</kw>
+<kw name="Classificar resultado do login" owner="condicao_resources">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<arg>Bem-vindo</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.914939" elapsed="0.000082"/>
+</kw>
+<var>${login_confirmado}</var>
+<arg>Page Should Contain</arg>
+<arg>Bem-vindo</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-16T18:55:03.914539" elapsed="0.000563"/>
+</kw>
+<if>
+<branch type="IF" condition="${login_confirmado}">
+<kw name="Log" owner="BuiltIn">
+<arg>Login realizado para o usuário ${usuario}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.915475" elapsed="0.000244"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.915262" elapsed="0.000518"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log" owner="BuiltIn">
+<arg>Login não confirmado para o usuário ${usuario}.</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.915993" elapsed="0.000206"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.915828" elapsed="0.000442"/>
+</branch>
+<status status="PASS" start="2026-10-16T18:55:03.915227" elapsed="0.001084"/>
+</if>
+<arg>paulo</arg>
+<status status="PASS" start="2026-10-16T18:55:03.914243" elapsed="0.002119"/>
+</kw>
+<kw name="Fechar o navegador" owner="condicao_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.917055" elapsed="0.000061"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2026-10-16T18:55:03.917231" elapsed="0.000039"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:55:03.916678" elapsed="0.000640"/>
+</kw>
+<doc>Exercita o caminho ELSE para credenciais inválidas.</doc>
+<tag>if_else</tag>
+<status status="PASS" start="2026-10-16T18:55:03.912132" elapsed="0.005251"/>
+</test>
+<status status="PASS" start="2026-10-16T18:55:03.339699" elapsed="0.578281"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">if_else</stat>
+</tag>
+<suite>
+<stat name="Condicao Testes" id="s1" pass="2" fail="0" skip="0">Condicao Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

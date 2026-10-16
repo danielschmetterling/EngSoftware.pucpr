@@ -1,0 +1,19 @@
+1792187322465	geckodriver	INFO	Listening on 127.0.0.1:51426
+1792187325565	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51427" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\danie\\AppData\\Local\\Temp\\rust_mozprofilerdM0Kl"
+Dynamically enable window occlusion 0
+1792187325872	Marionette	INFO	Marionette enabled
+1792187325962	Marionette	INFO	Listening on port 51436
+WebDriver BiDi listening on ws://127.0.0.1:51427
+Read port: 51436
+1792187326077	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[ERROR shell_windows::limited_access_features] Error generating feature token: NS_ERROR_FAILURE
+console.error: "Experiment desktop-release-rollout-show-relay-to-all-browsers-next-sign-up-modal-cta has unknown featureId: email-autocomplete-relay"
+console.error: "Experiment visual-card-updates has unknown featureId: newtabRefinedCardsLayout"
+console.error: "Experiment enable-nimbus-unenrollment-synchronization has unknown featureId: nimbusStore"
+console.error: "Experiment private-window-visual-refresh-design-change-only has unknown featureId: feltPrivacy"
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://165.227.93.41."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: http://165.227.93.41."
+1792187330305	RemoteAgent	WARN	PollPromise timed out after 0 ms
+1792187330307	RemoteAgent	WARN	PollPromise timed out after 0 ms
+1792187330352	Marionette	INFO	Stopped listening on port 51436
+Dynamically enable window occlusion 1

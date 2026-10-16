@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.0 on win32)" generated="2026-10-16T18:45:26.204310" rpa="false" schemaversion="5">
+<suite id="s1" name="Link Testes" source="C:\Home\GitHub\EngSoftware.pucpr\VV\Acionamento Link\link_testes.robot">
+<test id="s1-t1" name="CT1 - Acionar link e validar retorno" line="7">
+<kw name="Abrir o navegador" owner="link_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:26.634085" level="INFO">Opening browser 'Firefox' to base url 'https://www.bing.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T18:45:26.633845" elapsed="6.374407"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T18:45:33.008534" elapsed="0.312795"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:45:26.632932" elapsed="6.688658"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CAMPO_BUSCA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:45:33.322242" elapsed="0.030865"/>
+</kw>
+<kw name="Pesquisar e obter primeiro link" owner="link_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:33.355458" level="INFO">Typing text 'Abacaxi' into text field 'name:q'.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:45:33.354889" elapsed="0.083271"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:33.439147" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2026-10-16T18:45:33.973502" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-10-16T18:45:33.973746" level="INFO">Releasing special key RETURN.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-10-16T18:45:33.438607" elapsed="0.626555"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${LINK_RESULTADO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.065521" elapsed="0.550830"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:34.617648" level="INFO">Clicking element 'css:#bnp_btn_accept'.</msg>
+<msg time="2026-10-16T18:45:34.765272" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-16T18:45:34.765535" level="FAIL">ElementNotInteractableException: Message: Element &lt;div id="bnp_btn_accept" class="bnp_btn_accept"&gt; could not be scrolled into view; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:14:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:169:5
+ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:338:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:338:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</msg>
+<arg>css:#bnp_btn_accept</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2026-10-16T18:45:34.617365" elapsed="0.151754">ElementNotInteractableException: Message: Element &lt;div id="bnp_btn_accept" class="bnp_btn_accept"&gt; could not be scrolled into view; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#elementnotinteractableexception
+Stacktrace:
+RemoteError@chrome://remote/content/shared/RemoteError.sys.mjs:14:8
+WebDriverError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:169:5
+ElementNotInteractableError@chrome://remote/content/shared/webdriver/Errors.sys.mjs:338:5
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:165:11
+interaction.clickElement@chrome://remote/content/marionette/interaction.sys.mjs:134:11
+clickElement@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:338:29
+receiveMessage@chrome://remote/content/marionette/actors/MarionetteCommandsChild.sys.mjs:210:31
+</status>
+</kw>
+<arg>Click Element</arg>
+<arg>css:#bnp_btn_accept</arg>
+<doc>Runs the specified keyword and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.616731" elapsed="0.152540"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:34.772143" level="INFO">@{links} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="be28e5b7-7f3c-4c01-851d-e5c3241f9567", element="45c22848-1142-4930-8b93-177fd845be13")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement ...</msg>
+<var>@{links}</var>
+<arg>${LINK_RESULTADO}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.769418" elapsed="0.002772"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:45:34.772753" level="INFO">Length is 10.</msg>
+<arg>${links}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.772340" elapsed="0.000464"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:34.778380" level="INFO">${href} = https://www.bing.com/ck/a?!&amp;&amp;p=84f8f670bbc6fc2971e779584e1457f40518f9cf605e58d831d1de21dbe98730JmltdHM9MTc5MjEwODgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=2ce5c5b6-bf1e-6869-0f00-d242be2a69ea&amp;u=a1aHR0cHM6Ly93d3cud...</msg>
+<var>${href}</var>
+<arg>${links}[0]</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.772919" elapsed="0.005516"/>
+</kw>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${links}[0]</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-10-16T18:45:34.778634" elapsed="0.258229"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:35.037354" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="be28e5b7-7f3c-4c01-851d-e5c3241f9567", element="45c22848-1142-4930-8b93-177fd845be13")&gt;'.</msg>
+<arg>${links}[0]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:45:35.037069" elapsed="0.038548"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>tag:body</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:45:35.075818" elapsed="0.008119"/>
+</kw>
+<return>
+<value>${href}</value>
+<status status="PASS" start="2026-10-16T18:45:35.084150" elapsed="0.000094"/>
+</return>
+<msg time="2026-10-16T18:45:35.084448" level="INFO">${link} = https://www.bing.com/ck/a?!&amp;&amp;p=84f8f670bbc6fc2971e779584e1457f40518f9cf605e58d831d1de21dbe98730JmltdHM9MTc5MjEwODgwMA&amp;ptn=3&amp;ver=2&amp;hsh=4&amp;fclid=2ce5c5b6-bf1e-6869-0f00-d242be2a69ea&amp;u=a1aHR0cHM6Ly93d3cud...</msg>
+<var>${link}</var>
+<status status="PASS" start="2026-10-16T18:45:33.354154" elapsed="1.730330"/>
+</kw>
+<kw name="Should Start With" owner="BuiltIn">
+<arg>${link}</arg>
+<arg>http</arg>
+<doc>Fails if the string `str1` does not start with the string `str2`.</doc>
+<status status="PASS" start="2026-10-16T18:45:35.084834" elapsed="0.000596"/>
+</kw>
+<kw name="Fechar o navegador" owner="link_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:45:35.121433" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T18:45:35.086507" elapsed="0.035109"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T18:45:35.121834" elapsed="2.847686"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:45:35.086084" elapsed="2.883575"/>
+</kw>
+<doc>Acionamento de link e retorno da busca.</doc>
+<tag>retorno_busca</tag>
+<status status="PASS" start="2026-10-16T18:45:26.632129" elapsed="11.337734"/>
+</test>
+<status status="PASS" start="2026-10-16T18:45:26.206185" elapsed="11.764452"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">retorno_busca</stat>
+</tag>
+<suite>
+<stat name="Link Testes" id="s1" pass="1" fail="0" skip="0">Link Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
