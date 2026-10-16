@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.15.0 on win32)" generated="2026-10-16T08:02:08.766780" rpa="false" schemaversion="5">
+<suite id="s1" name="Produto Testes" source="C:\GitHub\EngSoftware.pucpr\VV\Pesquisa Produto\produto_testes.robot">
+<test id="s1-t1" name="CT1 - Realizar busca no Bing" line="8">
+<kw name="Abrir o navegador" owner="produto_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:09.045561" level="INFO">Opening browser 'Chrome' to base url 'https://www.google.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T08:02:09.045263" elapsed="2.740523"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T08:02:11.786114" elapsed="0.041772"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:02:09.044395" elapsed="2.783887"/>
+</kw>
+<kw name="Acessar a pagina home no site" owner="produto_resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:11.829945" level="INFO">Opening url 'https://www.google.com/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-10-16T08:02:11.829725" elapsed="1.110294"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CAMPO_BUSCA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T08:02:12.940423" elapsed="0.037212"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:02:11.829211" elapsed="1.148745"/>
+</kw>
+<kw name="Realizar pesquisa no site" owner="produto_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:12.979994" level="INFO">Typing text 'Dungeon Fighter 2 Tabletop' into text field 'name:q'.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T08:02:12.979429" elapsed="0.321842"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:13.303254" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2026-10-16T08:02:13.673455" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-10-16T08:02:13.673615" level="INFO">Releasing special key RETURN.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-10-16T08:02:13.302214" elapsed="0.393949"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:24.196040" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-16T08:02:24.196410" level="FAIL">Element 'css:li.b_algo' did not appear in 10 seconds.</msg>
+<arg>${RESULTADO_SELECTOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2026-10-16T08:02:13.696611" elapsed="10.556473">Element 'css:li.b_algo' did not appear in 10 seconds.</status>
+</kw>
+<status status="FAIL" start="2026-10-16T08:02:12.978800" elapsed="11.274794">Element 'css:li.b_algo' did not appear in 10 seconds.</status>
+</kw>
+<kw name="Verificar resultado da busca" owner="produto_resources">
+<status status="NOT RUN" start="2026-10-16T08:02:24.254621" elapsed="0.000161"/>
+</kw>
+<kw name="Fechar o navegador" owner="produto_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T08:02:24.479038" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T08:02:24.257188" elapsed="0.222080"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T08:02:24.479649" elapsed="2.314904"/>
+</kw>
+<status status="PASS" start="2026-10-16T08:02:24.256154" elapsed="2.538714"/>
+</kw>
+<doc>Esse teste realiza uma busca no site Google.com</doc>
+<tag>busca_google</tag>
+<status status="FAIL" start="2026-10-16T08:02:09.043360" elapsed="17.752063">Element 'css:li.b_algo' did not appear in 10 seconds.</status>
+</test>
+<status status="FAIL" start="2026-10-16T08:02:08.768536" elapsed="18.030454"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">busca_google</stat>
+</tag>
+<suite>
+<stat name="Produto Testes" id="s1" pass="0" fail="1" skip="0">Produto Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
