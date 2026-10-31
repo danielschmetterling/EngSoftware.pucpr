@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.0 on win32)" generated="2026-10-16T18:54:15.480477" rpa="false" schemaversion="5">
+<suite id="s1" name="Laco Testes" source="C:\Home\GitHub\EngSoftware.pucpr\VV\Laço\laco_testes.robot">
+<test id="s1-t1" name="CT1 - Validar resultados usando FOR" line="7">
+<kw name="Abrir o navegador" owner="laco_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:15.937572" level="INFO">Opening browser 'Firefox' to base url 'https://www.bing.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T18:54:15.937297" elapsed="6.530759"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T18:54:22.468558" elapsed="0.376018"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:15.936415" elapsed="6.908637"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CAMPO_BUSCA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:54:22.845928" elapsed="0.057201"/>
+</kw>
+<kw name="Pesquisar no Bing" owner="laco_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:22.905605" level="INFO">Typing text 'Abacaxi' into text field 'name:q'.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:22.904891" elapsed="0.169086"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:23.075282" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2026-10-16T18:54:23.768480" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-10-16T18:54:23.768589" level="INFO">Releasing special key RETURN.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-10-16T18:54:23.074609" elapsed="0.820153"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${RESULTADO_SELECTOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:54:23.895365" elapsed="0.799723"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:24.990306" level="INFO">Current page contains text 'Abacaxi'.</msg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-10-16T18:54:24.695740" elapsed="0.294774"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:22.904046" elapsed="2.086724"/>
+</kw>
+<kw name="Verificar cada resultado" owner="laco_resources">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.003180" level="INFO">@{resultados} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="2d9402a5-e736-4f66-b68e-767d8adcbe77")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement ...</msg>
+<var>@{resultados}</var>
+<arg>${RESULTADO_SELECTOR}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:24.991934" elapsed="0.011388"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.004996" level="INFO">Length is 10.</msg>
+<arg>${resultados}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.003616" elapsed="0.002020"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.045738" level="INFO">${texto} = Tua Saúde
+https://www.tuasaude.com › beneficios-do-abacaxi
+8 benefícios do abacaxi para a saúde (e como consumir)
+7 de mai. de 2026 · O abacaxi é uma fruta tropical que traz benefícios para a saúde, c...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.006783" elapsed="0.039027"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.046507" level="INFO">Length is 394.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.046037" elapsed="0.000537"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="2d9402a5-e736-4f66-b68e-767d8adcbe77")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.006483" elapsed="0.040163"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.118242" level="INFO">${texto} = Wikipédia
+https://pt.wikipedia.org › wiki › Ananás
+Ananás – Wikipédia, a enciclopédia livre
+Por sua vez, a palavra "abacaxi" costuma ser empregada não apenas para designar o fruto de melhor qualidade,...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.047016" elapsed="0.071291"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.119041" level="INFO">Length is 216.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.118508" elapsed="0.000602"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="0fec17b9-73f6-4548-88d2-13901fdfbb76")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.046862" elapsed="0.072320"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.175714" level="INFO">${texto} = Dicas de Saúde
+https://www.saudedica.com.br › abacaxi
+Abacaxi: tipos, 15 benefícios, para que serve e usos (com receitas)
+6 de out. de 2022 · Saiba tudo sobre o abacaxi, uma fruta tropical rica em vit...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.119704" elapsed="0.056067"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.176306" level="INFO">Length is 256.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.175951" elapsed="0.000399"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="0ac50927-a230-4edb-a013-6bf5136a4c7c")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.119332" elapsed="0.057063"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.203515" level="INFO">${texto} = comercialmendes.com.br
+https://comercialmendes.com.br › abacaxi-a-fruta-que-nao-e-exatamente...
+Abacaxi: a fruta que não é exatamente uma fruta só — origem ...
+Descubra por que o abacaxi não é exatame...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.176604" elapsed="0.027013"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.204288" level="INFO">Length is 285.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.203845" elapsed="0.000509"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="ae342666-b5f7-4b59-8856-3e1bec6fde03")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.176511" elapsed="0.027918"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.233449" level="INFO">${texto} = Portal Embrapa
+https://www.embrapa.br › web › mandioca-e-fruticultura › cultivos › abacaxi
+Abacaxi - Embrapa Mandioca e Fruticultura - Portal Embrapa
+13 de dez. de 2021 · O abacaxi é uma das frutas tr...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.205366" elapsed="0.028142"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.234151" level="INFO">Length is 277.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.233710" elapsed="0.000501"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="c6d49dcc-7b23-4ea9-b45e-c942150a73ae")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.205031" elapsed="0.029246"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.281257" level="INFO">${texto} = Brasil Escola
+https://brasilescola.uol.com.br › frutas › abacaxi.htm
+Abacaxi - Brasil Escola
+Quando maduro o abacaxi apresenta sabor muito ácido e muitas vezes adocicado. É rico em vitaminas C, B1, B6...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.234542" elapsed="0.046771"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.281834" level="INFO">Length is 221.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.281503" elapsed="0.000382"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="2342b68e-f68b-4d1d-b968-b038efc71fed")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.234424" elapsed="0.047509"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.333036" level="INFO">${texto} = Receiteria
+https://www.receiteria.com.br › receitas-com-abacaxi
+50 receitas com abacaxi: pratos salgados, sobremesas e sucos
+Nesta seleção de receitas com abacaxi, há molhos para carne, assados, salad...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.282171" elapsed="0.050926"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.333621" level="INFO">Length is 248.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.333266" elapsed="0.000410"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="f979e440-9ac0-4f00-b789-c49d3b2861f7")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.282073" elapsed="0.051650"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.378126" level="INFO">${texto} = Terra
+https://www.terra.com.br › vida-e-estilo › saude
+Abacaxi faz bem para quê? Conheça 7 benefícios da fruta para ... - Terra
+1 dia atrás · O abacaxi é uma fruta tropical nutritiva que oferece diver...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.333958" elapsed="0.044237"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.378827" level="INFO">Length is 262.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.378396" elapsed="0.000493"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="3049f8ea-3b67-4512-8a5b-c39aceedea0e")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.333847" elapsed="0.045096"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.424952" level="INFO">${texto} = receitasde.com.br
+https://receitasde.com.br › glossario › o-que-e-abacaxi-tudo-sobre-esta-fruta
+O que é Abacaxi: Descubra Tudo Sobre Esta Fruta
+O que é Abacaxi? Conheça suas características, benefício...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.379215" elapsed="0.045842"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.425815" level="INFO">Length is 248.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.425326" elapsed="0.000583"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="fd2ad044-bf84-422e-b360-191c2360073d")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.379078" elapsed="0.046892"/>
+</iter>
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.440250" level="INFO">${texto} = Receitas
+https://receitas.globo.com › blog › alimentacao-e-saude › c-abacaxi-calorias...
+Abacaxi: calorias, benefícios, tabela nutricional e vitaminas
+28 de abr. de 2024 · Suculento e refrescante, o a...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.426292" elapsed="0.014022"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:25.440848" level="INFO">Length is 283.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.440486" elapsed="0.000416"/>
+</kw>
+<var name="${resultado}">&lt;selenium.webdriver.remote.webelement.WebElement (session="25acdb72-8a0a-4e18-8d40-d2c3865eaef5", element="58d03bd6-4cfb-49e5-a816-e17f29c62335")&gt;</var>
+<status status="PASS" start="2026-10-16T18:54:25.426141" elapsed="0.014809"/>
+</iter>
+<var>${resultado}</var>
+<value>@{resultados}</value>
+<status status="PASS" start="2026-10-16T18:54:25.005926" elapsed="0.435073"/>
+</for>
+<status status="PASS" start="2026-10-16T18:54:24.991443" elapsed="0.449653"/>
+</kw>
+<kw name="Fechar o navegador" owner="laco_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:25.504682" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.441918" elapsed="0.062928"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T18:54:25.505180" elapsed="2.869208"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:25.441563" elapsed="2.932943"/>
+</kw>
+<doc>Pesquisa no Bing e valida cada resultado com um laço.</doc>
+<tag>for</tag>
+<status status="PASS" start="2026-10-16T18:54:15.935443" elapsed="12.439255"/>
+</test>
+<test id="s1-t2" name="CT2 - Validar resultados usando WHILE" line="14">
+<kw name="Abrir o navegador" owner="laco_resources" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:28.376391" level="INFO">Opening browser 'Firefox' to base url 'https://www.bing.com/'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-10-16T18:54:28.376185" elapsed="7.534030"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-10-16T18:54:35.910671" elapsed="0.399321"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:28.375810" elapsed="7.934392"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${CAMPO_BUSCA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:54:36.310735" elapsed="0.095903"/>
+</kw>
+<kw name="Pesquisar no Bing" owner="laco_resources">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:36.408407" level="INFO">Typing text 'Abacaxi' into text field 'name:q'.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:36.407943" elapsed="0.142714"/>
+</kw>
+<kw name="Press Keys" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:36.551852" level="INFO">Sending key(s) ('RETURN',) to name:q element.</msg>
+<msg time="2026-10-16T18:54:36.991827" level="INFO">Pressing special key RETURN to element.</msg>
+<msg time="2026-10-16T18:54:36.992007" level="INFO">Releasing special key RETURN.</msg>
+<arg>${CAMPO_BUSCA}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="PASS" start="2026-10-16T18:54:36.551168" elapsed="0.684702"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${RESULTADO_SELECTOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-10-16T18:54:37.236291" elapsed="0.667033"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:38.686904" level="INFO">Current page contains text 'Abacaxi'.</msg>
+<arg>${TERMO_BUSCA}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2026-10-16T18:54:37.903725" elapsed="0.783715"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:36.407318" elapsed="2.280400"/>
+</kw>
+<kw name="Verificar resultados com while" owner="laco_resources">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:38.705817" level="INFO">@{resultados} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="ba69c463-67a3-4657-9a14-5e25c59527e6")&gt; | &lt;selenium.webdriver.remote.webelement.WebElement ...</msg>
+<var>@{resultados}</var>
+<arg>${RESULTADO_SELECTOR}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.689896" elapsed="0.016100"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.706963" level="INFO">Length is 10.</msg>
+<arg>${resultados}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.706334" elapsed="0.000727"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.708181" level="INFO">Length is 10.</msg>
+<msg time="2026-10-16T18:54:38.708369" level="INFO">${total} = 10</msg>
+<var>${total}</var>
+<arg>${resultados}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.707331" elapsed="0.001098"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.709634" level="INFO">${indice} = 0</msg>
+<var>${indice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.708790" elapsed="0.000928"/>
+</kw>
+<while condition="${indice} &lt; ${total}">
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:38.711134" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="ba69c463-67a3-4657-9a14-5e25c59527e6")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.710667" elapsed="0.000540"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:38.792390" level="INFO">${texto} = Tua Saúde
+https://www.tuasaude.com › beneficios-do-abacaxi
+8 benefícios do abacaxi para a saúde (e como consumir)
+Ajuda na perda de peso. O abacaxi é rico em água e fibras, ajudando a …
+Regula a press...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.711484" elapsed="0.081009"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.793639" level="INFO">Length is 452.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.792783" elapsed="0.001053"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.795092" level="INFO">${indice} = 1</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.794209" elapsed="0.000941"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:38.709944" elapsed="0.085292"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:38.796799" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="735d3402-a9fe-4120-9ea2-a5170b0fc2c9")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.796082" elapsed="0.000833"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:38.860247" level="INFO">${texto} = Wikipédia
+https://pt.wikipedia.org › wiki › Ananás
+Ananás – Wikipédia, a enciclopédia livre
+Descrição geralEtimologiaHistóricoCaracterísticasCulturaMoléstias e pragas
+De acordo com o escritor e lingui...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.797308" elapsed="0.063015"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.861421" level="INFO">Length is 688.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.860559" elapsed="0.000983"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.862582" level="INFO">${indice} = 2</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.861785" elapsed="0.000881"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:38.795320" elapsed="0.067505"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:38.864565" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="2b2300eb-8c9a-4168-9dd4-8ba98fb268ba")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.863964" elapsed="0.000672"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:38.937031" level="INFO">${texto} = Dicas de Saúde
+https://www.saudedica.com.br › abacaxi
+Abacaxi: tipos, 15 benefícios, para que serve e usos (com receitas)
+Saiba tudo sobre o abacaxi, uma fruta tropical rica em vitaminas, minerais e e...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.864988" elapsed="0.072562"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.939171" level="INFO">Length is 508.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.937997" elapsed="0.001340"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:38.941071" level="INFO">${indice} = 3</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.939714" elapsed="0.001453"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:38.862945" elapsed="0.078355"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:38.942516" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="2d924ca7-dcc3-4eaa-b75b-36df11ba856c")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.941908" elapsed="0.000673"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.045085" level="INFO">${texto} = cotacaododia.com
+https://cotacaododia.com › abacaxi
+Preço do Abacaxi Hoje | Cotação por unidade
+31 de ago. de 2026 · Preço e cotação do abacaxi no Brasil: indicador do dia, variação, conversão de unid...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:38.943029" elapsed="0.102162"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.045943" level="INFO">Length is 229.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.045411" elapsed="0.000609"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.046949" level="INFO">${indice} = 4</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.046254" elapsed="0.000761"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:38.941382" elapsed="0.105744"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.047728" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="7d911756-ff22-4212-b275-8d3cae8788f1")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.047506" elapsed="0.000255"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.091546" level="INFO">${texto} = Portal Embrapa
+https://www.embrapa.br › web › mandioca-e-fruticultura › cultivos › abacaxi
+Abacaxi - Embrapa Mandioca e Fruticultura - Portal Embrapa
+13 de dez. de 2021 · O abacaxi é uma das frutas tr...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.047892" elapsed="0.043724"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.092247" level="INFO">Length is 277.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.091810" elapsed="0.000510"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.092950" level="INFO">${indice} = 5</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.092507" elapsed="0.000477"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.047192" elapsed="0.045864"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.093651" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="b8eb149c-ab7b-496c-96a0-08339ad54690")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.093371" elapsed="0.000347"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.116556" level="INFO">${texto} = Brasil Escola
+https://brasilescola.uol.com.br › frutas › abacaxi.htm
+Abacaxi - Brasil Escola
+Quando maduro o abacaxi apresenta sabor muito ácido e muitas vezes adocicado. É rico em vitaminas C, …</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.093950" elapsed="0.022701"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.117314" level="INFO">Length is 195.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.116911" elapsed="0.000464"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.117975" level="INFO">${indice} = 6</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.117560" elapsed="0.000462"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.093100" elapsed="0.024971"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.118674" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="9cab0e6d-0590-498b-af83-a9f465e1cc32")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.118381" elapsed="0.000347"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.174659" level="INFO">${texto} = Receiteria
+https://www.receiteria.com.br › receitas-com-abacaxi
+50 receitas com abacaxi: pratos salgados, sobremesas e …
+Nesta seleção de receitas com abacaxi, há molhos para carne, assados, saladas, ...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.118939" elapsed="0.055834"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.175854" level="INFO">Length is 222.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.175143" elapsed="0.000870"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.177319" level="INFO">${indice} = 7</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.176421" elapsed="0.000956"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.118112" elapsed="0.059362"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.178239" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="f5209edb-57c7-4481-ac77-84541a8e8cfa")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.177884" elapsed="0.000457"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.246900" level="INFO">${texto} = Terra
+https://www.terra.com.br › vida-e-estilo › saude
+Abacaxi faz bem para quê? Conheça 7 benefícios da fruta para ... - Terra
+1 dia atrás · O abacaxi é uma fruta tropical nutritiva que oferece diver...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.178569" elapsed="0.068461"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.248113" level="INFO">Length is 262.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.247366" elapsed="0.000862"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.249583" level="INFO">${indice} = 8</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.248560" elapsed="0.001118"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.177534" elapsed="0.072271"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.250887" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="e9d00094-aeb5-49e8-b684-031106257509")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.250436" elapsed="0.000499"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.313272" level="INFO">${texto} = receitasde.com.br
+https://receitasde.com.br › glossario › o-que-e-abacaxi-tudo-sobre-esta-fruta
+O que é Abacaxi: Descubra Tudo Sobre Esta Fruta
+O que é Abacaxi? Conheça suas características, benefício...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.251176" elapsed="0.062220"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.314337" level="INFO">Length is 248.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.313737" elapsed="0.000692"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.315497" level="INFO">${indice} = 9</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.314681" elapsed="0.000889"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.249877" elapsed="0.065831"/>
+</iter>
+<iter>
+<kw name="Get From List" owner="Collections">
+<msg time="2026-10-16T18:54:39.316774" level="INFO">${resultado} = &lt;selenium.webdriver.remote.webelement.WebElement (session="0eb4acae-f8a8-473f-9771-f8820fbd1983", element="6a2dd2f1-eef9-4dab-983d-1c4892b71226")&gt;</msg>
+<var>${resultado}</var>
+<arg>${resultados}</arg>
+<arg>${indice}</arg>
+<doc>Returns the value specified with an `index` from `list`.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.316345" elapsed="0.000515"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.387504" level="INFO">${texto} = Receitas
+https://receitas.globo.com › blog › alimentacao-e-saude › c-a…
+Abacaxi: calorias, benefícios, tabela nutricional e vitaminas
+28 de abr. de 2024 · Suculento e refrescante, o abacaxi é uma frut...</msg>
+<var>${texto}</var>
+<arg>${resultado}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.317195" elapsed="0.070421"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.388690" level="INFO">Length is 234.</msg>
+<arg>${texto}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.388009" elapsed="0.000786"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-10-16T18:54:39.389891" level="INFO">${indice} = 10</msg>
+<var>${indice}</var>
+<arg>${indice} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.389090" elapsed="0.000890"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.315784" elapsed="0.074333"/>
+</iter>
+<status status="PASS" start="2026-10-16T18:54:38.709940" elapsed="0.680525"/>
+</while>
+<status status="PASS" start="2026-10-16T18:54:38.689278" elapsed="0.701385"/>
+</kw>
+<kw name="Fechar o navegador" owner="laco_resources" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-10-16T18:54:39.543882" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.391875" elapsed="0.152184"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-16T18:54:39.544293" elapsed="3.100557"/>
+</kw>
+<status status="PASS" start="2026-10-16T18:54:39.391405" elapsed="3.253681"/>
+</kw>
+<doc>Pesquisa no Bing e valida cada resultado com WHILE.</doc>
+<tag>while</tag>
+<status status="PASS" start="2026-10-16T18:54:28.375265" elapsed="14.270124"/>
+</test>
+<status status="PASS" start="2026-10-16T18:54:15.482919" elapsed="27.163842"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">for</stat>
+<stat pass="1" fail="0" skip="0">while</stat>
+</tag>
+<suite>
+<stat name="Laco Testes" id="s1" pass="2" fail="0" skip="0">Laco Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
