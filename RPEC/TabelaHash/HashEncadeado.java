@@ -67,6 +67,7 @@ public class HashEncadeado {
                     inicioMaiorLista = tabela[i];
                 }
             }
+        }
             System.out.println("Posições Vazias: " + posicoesVazias);
             System.out.println("Listas Encadeados: " + totalListas);
             System.out.println("Tamanho da Maior Lista: " + maiorTamanho + " na posição " + posicaoMaiorLista);
