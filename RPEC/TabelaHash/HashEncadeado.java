@@ -83,7 +83,6 @@ public class HashEncadeado {
             System.out.println();
 
             System.out.println("Três últimos valores: " + ultimosTres[0] + ", " + ultimosTres[1] + ", " + ultimosTres[2]);
-        }
     }
 
     public static void main(String args[]){
